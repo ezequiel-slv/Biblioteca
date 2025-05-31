@@ -1,19 +1,23 @@
 package dominio;
 
-public class Login extends ErroLogin{
-    private String usuarioDB;
-    private String senhaDB;
+public class Login {
+    private String usuarioEntrada;
+    private String senhaEntrada;
 
-    @Override
-    public void errorAlert() {
-        super.errorAlert();
+
+    public String getUsuarioEntrada() {
+        return usuarioEntrada;
     }
 
-    public void setUsuarioDB(String usuarioDB) {
-        this.usuarioDB = usuarioDB;
+    public void setUsuarioEntrada(String usuarioEntrada) {
+        this.usuarioEntrada = usuarioEntrada;
     }
 
-    public void setSenhaDB(String senhaDB) {
-        this.senhaDB = senhaDB;
+    public String getSenhaEntrada() {
+        return senhaEntrada;
+    }
+
+    public void setSenhaEntrada(String senhaEntrada) {
+        this.senhaEntrada = senhaEntrada;
     }
 }
