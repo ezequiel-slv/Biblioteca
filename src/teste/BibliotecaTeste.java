@@ -2,6 +2,7 @@ package teste;
 
 import dominio.Cadastro;
 import dominio.ErroLogin;
+import dominio.Livro1;
 import dominio.Login;
 import servico.ValidacaoLogin;
 
@@ -11,6 +12,7 @@ public class BibliotecaTeste {
         Cadastro cadastro = new Cadastro();
         Login login = new Login();
         ValidacaoLogin validar = new ValidacaoLogin();
+        Livro1 livro1 = new Livro1();
 
         try {
             cadastro.startCadastro();
@@ -25,5 +27,7 @@ public class BibliotecaTeste {
         } catch (ErroLogin e) {
             throw new RuntimeException(e);
         }
+
+        livro1.cadastarLivro();
     }
 }

@@ -5,5 +5,6 @@ public enum Categoria {
     ACAO,
     FICCAO_CIENTIFICA,
     TERROR,
-    POLICIAL
+    POLICIAL;
+
 }
