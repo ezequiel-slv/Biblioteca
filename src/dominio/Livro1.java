@@ -21,7 +21,7 @@ public class Livro1 extends Livro implements Imprimivel{
 
         System.out.println("Digite o formato do livro que deseja cadastrar (FISICO ou DIGITAL): ");
         String categoriaFinal = entrada.nextLine();
-        if (categoriaFinal.equals(livroFisico)){
+        if (categoriaFinal.equals(livroDigital)){
             imprimivel();
         }
 
