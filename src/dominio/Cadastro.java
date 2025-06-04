@@ -7,7 +7,7 @@ public class Cadastro{
     private String senhaDB;
 
 
-    public void startCadastro() throws ErroLogin{
+    public void startCadastro() throws ErroLogin {
         System.out.println("--- Cadastro ---");
 
         Scanner entrada = new Scanner(System.in);
@@ -17,20 +17,24 @@ public class Cadastro{
         System.out.println("Escolha a senha: ");
         this.senhaDB = entrada.nextLine();
 
-        try{
-            if (usuarioDB != null || senhaDB != null){
-                System.out.println("Cadastro feito com sucesso!");
+
+
+            try {
+
+                if (getUsuarioDB() != null || getSenhaDB() != null) {
+                    System.out.println("Cadastro feito com sucesso!");
+                }
+            } catch (Exception e) {
+                throw new ErroLogin("Erro: Campo usuário ou senha vazios");
             }
-        }catch (Exception e){
-            throw new ErroLogin("Erro: Campo usuário ou senha vazios");
-        }
+
     }
 
     public String getUsuarioDB() {
-        return usuarioDB;
+        return usuarioDB.trim();
     }
 
     public String getSenhaDB() {
-        return senhaDB;
+        return senhaDB.trim();
     }
 }
