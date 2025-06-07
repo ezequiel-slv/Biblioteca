@@ -1,29 +1,22 @@
 package teste;
 
-import dominio.Cadastro;
-import dominio.ErroLogin;
-import dominio.Livro1;
-import dominio.Login;
-import servico.ValidacaoLogin;
+import dominio.*;
 
 
 public class BibliotecaTeste {
     public static void main(String[] args) {
         Cadastro cadastro = new Cadastro();
         Login login = new Login();
-        ValidacaoLogin validar = new ValidacaoLogin();
         Livro1 livro1 = new Livro1();
 
         try {
             cadastro.startCadastro();
-        } catch (ErroLogin e) {
+        } catch (ErroCadastro e) {
             throw new RuntimeException(e);
         }
 
-        login.startLogin();
-
         try {
-            validar.Validarlogin(cadastro, login);
+            login.startLogin();
         } catch (ErroLogin e) {
             throw new RuntimeException(e);
         }
