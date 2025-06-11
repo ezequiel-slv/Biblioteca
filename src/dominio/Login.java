@@ -10,18 +10,25 @@ public class Login {
 
     public void startLogin() throws ErroLogin {
         System.out.println("--- Login ---");
-
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Usuário");
-        this.usuarioEntrada = entrada.nextLine();
 
-        System.out.println("Senha");
-        this.senhaEntrada = entrada.nextLine();
+        while (true){
+            System.out.println("Usuário");
+            this.usuarioEntrada = entrada.nextLine();
 
-        if (!cadastro.getUsuarioDB().equals(usuarioEntrada) && !cadastro.getSenhaDB().equals(senhaEntrada)) {
-            System.out.println("Erro: Usuário ou senha incorretos");
+            System.out.println("Senha");
+            this.senhaEntrada = entrada.nextLine();
+
+            boolean loginUsuarioInvalido = !cadastro.getUsuarioDB().equals(usuarioEntrada);
+            boolean loginSenhaInvalida = !cadastro.getSenhaDB().equals(senhaEntrada);
+
+            if (loginUsuarioInvalido || loginSenhaInvalida){
+                System.out.println("Erro: Usuário ou senha inválidos");
+            }else {
+                System.out.println("Login bem sucedido");
+                break;
+            }
         }
-        System.out.println("Login bem sucedido!");
     }
 
     public String getUsuarioEntrada() {

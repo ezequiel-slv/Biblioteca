@@ -9,30 +9,35 @@ public class Cadastro {
 
     public void startCadastro() throws ErroCadastro {
         System.out.println("--- Cadastro ---");
-
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Escolha o nome de usuário: ");
-        this.usuarioDB = entrada.nextLine();
 
-        System.out.println("- A senha deve conter:");
-        System.out.println("Uma letra maiúscula");
-        System.out.println("Uma letra minúscula");
-        System.out.println("Um caracter especial");
+        while (true){
+            System.out.println("Escolha o nome de usuário: ");
+            this.usuarioDB = entrada.nextLine();
 
-        System.out.println("Escolha a senha: ");
-        this.senhaDB = entrada.nextLine();
+            System.out.println("A senha deve conter:");
+            System.out.println("- Uma letra maiúscula");
+            System.out.println("- Uma letra minúscula");
+            System.out.println("- Um caracter especial");
+            System.out.println("- Um número");
+            System.out.println("Escolha a senha: ");
+            this.senhaDB = entrada.nextLine();
 
-        boolean upper = senhaDB.matches(".*[A-Z].*");
-        boolean loww = senhaDB.matches(".*[a-z].*");
-        boolean upperAndLow = upper && loww;
+            boolean upper = senhaDB.matches(".*[A-Z].*");
+            boolean loww = senhaDB.matches(".*[a-z].*");
+            boolean num = senhaDB.matches(".*[0-9].*");
+            boolean upperAndLow = upper && loww;
+            boolean especialCharacter = senhaDB.matches(".*[!@#$%^&*()\\-+_=~`{}\\[\\]:;\"'<>,.?/|\\\\].*");
 
-        boolean especialCharacter = senhaDB.matches(".*[!@#$%^&*()+_=~`{}:;'<>,.?/|].*");
+            boolean usuarioInvalido = getUsuarioDB() == null || getUsuarioDB().isEmpty();
+            boolean senhaInvalida = getSenhaDB() == null || getSenhaDB().isEmpty() || !upperAndLow || !especialCharacter || !num;
 
-
-        if (getUsuarioDB() != null && !getUsuarioDB().isEmpty() && getSenhaDB() != null && !getSenhaDB().isEmpty() && upperAndLow && especialCharacter) {
-            System.out.println("Cadastro feito com sucesso!");
-        } else {
-            throw new ErroCadastro("Erro: Usuário ou senha inválidos");
+            if (usuarioInvalido || senhaInvalida){
+                System.out.println("Erro: Usuário ou senha inválida");
+            }else {
+                System.out.println("Cadastro efetuado com sucesso");
+                break;
+            }
         }
     }
 
