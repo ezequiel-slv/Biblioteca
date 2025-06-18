@@ -8,6 +8,7 @@ public abstract class Livro {
     String livroFisico = "FISICO";
     String livroDigital = "DIGITAL";
 
+    /*
     static {
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder codigo = new StringBuilder();
@@ -23,6 +24,7 @@ public abstract class Livro {
         System.out.println("Código gerado: " + codigoAleatorio);
     }
 
+     */
     public String getTitulo() {
         return titulo;
     }

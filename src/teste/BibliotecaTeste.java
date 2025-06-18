@@ -16,7 +16,7 @@ public class BibliotecaTeste {
         }
 
         try {
-            login.startLogin();
+            login.startLogin(cadastro);
         } catch (ErroLogin e) {
             throw new RuntimeException(e);
         }
