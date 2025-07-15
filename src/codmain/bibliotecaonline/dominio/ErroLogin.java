@@ -1,4 +1,4 @@
-package dominio;
+package codmain.bibliotecaonline.dominio;
 
 public class ErroLogin extends Exception {
 

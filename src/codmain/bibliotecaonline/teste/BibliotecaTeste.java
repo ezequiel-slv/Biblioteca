@@ -1,6 +1,6 @@
-package teste;
+package codmain.bibliotecaonline.teste;
 
-import dominio.*;
+import codmain.bibliotecaonline.dominio.*;
 
 
 public class BibliotecaTeste {
