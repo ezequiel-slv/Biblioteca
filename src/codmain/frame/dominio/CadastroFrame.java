@@ -20,6 +20,14 @@ public class CadastroFrame {
         rotulo.setSize(400,500);
         rotulo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         rotulo.setLayout(null);
+
+        textoUsuario = new JLabel("Escolha um nome de usuário: ");
+        textoUsuario.setBounds(30, 30, 100, 25);
+        textoUsuario.add(rotulo);
+
+        campoUsuaro = new JTextField();
+        campoUsuaro.setBounds(60, 30, 200, 25);
+        campoUsuaro.add(campoUsuaro);
     }
 
     public void exibir(){
