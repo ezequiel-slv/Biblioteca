@@ -2,6 +2,7 @@ package com.ezequiel.biblioteca.controller;
 
 import com.ezequiel.biblioteca.model.Estudante;
 import com.ezequiel.biblioteca.service.LoginService;
+import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,4 +70,11 @@ public class LoginController implements Initializable {
                     }
                 }
             }
+
+    @FXML
+    protected void loginVoltar(ActionEvent event){
+        TelasService.mudarTela("voltarLogin");
+        }
     }
+
+

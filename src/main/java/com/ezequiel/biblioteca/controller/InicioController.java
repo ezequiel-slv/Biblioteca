@@ -1,6 +1,6 @@
 package com.ezequiel.biblioteca.controller;
 
-import com.ezequiel.biblioteca.Main;
+import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +9,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class InicioController implements Initializable {
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -23,11 +22,11 @@ public class InicioController implements Initializable {
 
     @FXML
     protected void entrar(ActionEvent event){
-        Main.mudarTela("entrar");
+        TelasService.mudarTela("entrar");
     }
 
     @FXML
     protected void cadastrar(ActionEvent event){
-        Main.mudarTela("cadastrar");
+        TelasService.mudarTela("cadastrar");
     }
 }
