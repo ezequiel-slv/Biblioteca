@@ -4,29 +4,23 @@ import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class InicioController implements Initializable {
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 
     @FXML
-    private Button bt_cadastrar;
+    void cadastrar(ActionEvent event) {
+        TelasService.mudarTela("cadastrar");
+    }
 
     @FXML
-    private Button bt_entrar;
-
-    @FXML
-    protected void entrar(ActionEvent event){
+    void entrar(ActionEvent event) {
         TelasService.mudarTela("entrar");
     }
 
-    @FXML
-    protected void cadastrar(ActionEvent event){
-        TelasService.mudarTela("cadastrar");
-    }
 }

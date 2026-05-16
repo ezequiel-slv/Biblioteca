@@ -17,7 +17,7 @@ public class LoginService implements LoginInterface {
     public List<Estudante> buscar() {
         List<Estudante> estudantes = new ArrayList<>();
 
-        String  sql = "SELECT email, nome, senha";
+        String  sql = "SELECT email, nome, senha from tb_estudante";
         try {
 
             ResultSet rs = null;

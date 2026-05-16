@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void autenticar(ActionEvent event){
+    void entrar(ActionEvent event){
             if (validar()){
                 LoginService loginService = new LoginService();
                 List<Estudante> estudantes = loginService.buscar();
@@ -72,7 +72,7 @@ public class LoginController implements Initializable {
             }
 
     @FXML
-    protected void loginVoltar(ActionEvent event){
+    protected void voltar(ActionEvent event){
         TelasService.mudarTela("voltarLogin");
         }
     }

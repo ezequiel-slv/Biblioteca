@@ -20,7 +20,7 @@ public class TelasService {
             case "cadastrar":
                 stage.setScene(cadastroScene);
                 break;
-            case "voltarLogin":
+            case "voltarLogin", "voltarCadastro":
                 stage.setScene(inicioScene);
             default:
                 break;

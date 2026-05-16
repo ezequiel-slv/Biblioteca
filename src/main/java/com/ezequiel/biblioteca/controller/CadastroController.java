@@ -2,6 +2,7 @@ package com.ezequiel.biblioteca.controller;
 
 import com.ezequiel.biblioteca.model.Estudante;
 import com.ezequiel.biblioteca.service.CadastroService;
+import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -72,6 +73,7 @@ public class CadastroController implements Initializable {
 
         if (!matcherSenha.matches()){
             aviso.append("Senha inválida!\n");
+            limpar();
         }
 
         if (tf_senha.getText().isEmpty()){
@@ -87,6 +89,7 @@ public class CadastroController implements Initializable {
             alert.setHeaderText("ERRO");
             alert.setContentText(aviso.toString());
             alert.show();
+            limpar();
 
             return  false;
         }else {
@@ -114,6 +117,11 @@ public class CadastroController implements Initializable {
             cadastroService.inserir(estudante);
             limpar();
         }
+    }
+
+    @FXML
+    void voltarCadastro(ActionEvent event){
+        TelasService.mudarTela("voltarCadastro");
     }
 
     void limpar(){
