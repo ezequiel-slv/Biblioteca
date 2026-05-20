@@ -27,11 +27,11 @@ public class LoginController implements Initializable {
     public boolean validar(){
         StringBuilder aviso = new StringBuilder();
 
-        if (tf_email.getText().isEmpty()){
+        if (tf_email.getText().isBlank()){
             aviso.append("Campo Email é obrigatório!\n");
         }
 
-        if (tf_senha.getText().isEmpty()){
+        if (tf_senha.getText().isBlank()){
             aviso.append("Campo Senha é obrigatório!\n");
         }
 
@@ -50,24 +50,7 @@ public class LoginController implements Initializable {
     @FXML
     void entrar(ActionEvent event){
             if (validar()){
-                LoginService loginService = new LoginService();
-                List<Estudante> estudantes = loginService.buscar();
 
-                String emailEstudante = null;
-                String senhaEstudante = null;
-
-                for (Estudante estudante : estudantes){
-                    emailEstudante = estudante.getEmail();
-                    senhaEstudante = estudante.getSenha();
-                    }
-
-                    if (emailEstudante.equals(tf_email)){
-                        System.out.println("Email encontrado");
-                    }
-
-                    if (senhaEstudante.equals(tf_senha)){
-                        System.out.println("senha encontrado");
-                    }
                 }
             }
 
