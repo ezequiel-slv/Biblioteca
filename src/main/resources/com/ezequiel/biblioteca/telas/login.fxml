@@ -2,8 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,65 +11,35 @@
 <?import javafx.scene.layout.StackPane?>
 
 <BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.biblioteca.controller.LoginController">
-   <center>
-      <StackPane prefHeight="441.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+   <right>
+      <AnchorPane fx:id="backgroundLogin2" prefHeight="500.0" prefWidth="458.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="320.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="101.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="219.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            <StackPane fx:id="backgroundLogin2" layoutX="60.0" prefHeight="500.0" prefWidth="409.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="123.0" text="Email" textAlignment="JUSTIFY" />
-                  <TextField fx:id="tf_email" GridPane.columnIndex="1" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="111.0" text="Senha" textAlignment="JUSTIFY" GridPane.rowIndex="1" />
-                  <TextField fx:id="tf_senha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="118.0" prefWidth="326.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.0" minWidth="10.0" prefWidth="349.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btEntrarLogin" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#entrar" prefHeight="30.0" prefWidth="360.0" text="Entrar" GridPane.rowIndex="2" />
+                        <TextField fx:id="tf_email" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="349.0" promptText="Insira o Email" />
+                        <TextField fx:id="tf_senha" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="345.0" promptText="Insira a senha" GridPane.rowIndex="1" />
+                     </children>
+                     <StackPane.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </StackPane.margin>
+                  </GridPane>
                </children>
-            </GridPane>
+            </StackPane>
          </children>
-      </StackPane>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane fx:id="backgroundLogin1" prefHeight="500.0" prefWidth="290.0" BorderPane.alignment="CENTER" />
    </center>
-   <top>
-      <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="700.0" text="Login" textAlignment="JUSTIFY" GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
-   </top>
-   <bottom>
-      <GridPane prefHeight="60.0" prefWidth="669.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button mnemonicParsing="false" onAction="#voltar" prefHeight="26.0" prefWidth="101.0" text="Voltar">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#entrar" prefHeight="26.0" prefWidth="101.0" text="Entrar" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets right="20.0" />
-               </GridPane.margin>
-            </Button>
-         </children>
-      </GridPane>
-   </bottom>
 </BorderPane>

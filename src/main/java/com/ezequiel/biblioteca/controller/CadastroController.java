@@ -60,6 +60,7 @@ public class CadastroController implements Initializable {
 
         if (!matcherEmail.matches()){
             aviso.append("Email inválido!\n");
+            limpar();
         }
 
         if (tf_email.getText().isEmpty()){

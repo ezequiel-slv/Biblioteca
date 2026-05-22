@@ -1,0 +1,29 @@
+#backgroundLogin1{
+    -fx-background-color: #0A1120;
+}
+
+#backgroundLogin2{
+    -fx-background-color: #0A192F;
+}
+
+#tf_email{
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#tf_senha{
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#btEntrarLogin{
+    -fx-background-color: #404040;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#btEntrarLogin:hover{
+    -fx-background-color: #808080FF;
+    -fx-text-fill: #000000;
+}
