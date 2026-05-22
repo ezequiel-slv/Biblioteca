@@ -9,25 +9,18 @@ import java.sql.SQLException;
 public class LoginService implements LoginInterface {
 
     @Override
-    public Estudante buscar(String email, String senha) {
-        String sql = "SELECT * FROM tb_estudante WHERE email = ? AND senha = ?";
+    public boolean buscar(Estudante estudante) {
+        String sql = "SELECT 1 FROM tb_estudante WHERE email = ? AND senha = ?";
 
         try {
             PreparedStatement ps = ConnectionDB.connectionDB().prepareStatement(sql);
 
-            ps.setString(1, email);
-            ps.setString(2, senha);
+            ps.setString(1, estudante.getEmail());
+            ps.setString(2, estudante.getSenha());
 
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()){
-                Estudante estudante = new Estudante();
-
-                estudante.setEmail(rs.getString(email));
-                estudante.setSenha(rs.getString(senha));
-
-                System.out.println(estudante);
-            }
+            return rs.next();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

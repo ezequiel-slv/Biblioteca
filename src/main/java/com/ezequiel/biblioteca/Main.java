@@ -18,6 +18,10 @@ public class Main extends Application {
         Parent telaInicio = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/inicio.fxml")));
         TelasService.inicioScene = new Scene(telaInicio);
 
+        String css = Objects.requireNonNull(this.getClass()
+                .getResource("telas/stile/inicio.css")).toExternalForm();
+        TelasService.inicioScene.getStylesheets().add(css);
+
         Parent telaLogin = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/login.fxml")));
         TelasService.loginScene = new Scene(telaLogin);
 

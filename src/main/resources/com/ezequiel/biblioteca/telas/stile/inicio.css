@@ -1,0 +1,14 @@
+
+#telaInteiraInicio{
+    -fx-background-color: linear-gradient(to bottom, #ff0000, #FFA500);
+}
+
+#btEntrar{
+    -fx-background-color: #404040;
+    -fx-text-fill: #FFFFFF;
+}
+
+#btCadastrar{
+    -fx-background-color: #404040;
+    -fx-text-fill: #FFFFFF;
+}

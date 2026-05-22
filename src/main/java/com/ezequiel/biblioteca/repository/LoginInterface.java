@@ -4,5 +4,5 @@ import com.ezequiel.biblioteca.model.Estudante;
 import java.util.List;
 
 public interface LoginInterface {
-    List <Estudante> buscar();
+    boolean buscar(Estudante estudante);
 }

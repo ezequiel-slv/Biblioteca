@@ -1,6 +1,7 @@
 package com.ezequiel.biblioteca.controller;
 
 import com.ezequiel.biblioteca.model.Estudante;
+import com.ezequiel.biblioteca.repository.LoginInterface;
 import com.ezequiel.biblioteca.service.LoginService;
 import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
@@ -23,6 +24,9 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    Estudante estudante = new Estudante();
+    LoginService loginService = new LoginService();
 
     public boolean validar(){
         StringBuilder aviso = new StringBuilder();
@@ -50,9 +54,18 @@ public class LoginController implements Initializable {
     @FXML
     void entrar(ActionEvent event){
             if (validar()){
+                estudante.setEmail(tf_email.getText());
+                estudante.setSenha(tf_senha.getText());
 
+                boolean loginEstudante = loginService.buscar(estudante);
+
+                if (loginEstudante){
+                    System.out.println("Login bem sucedido");
+                }else {
+                    TelasService.mudarTela("cadastrar");
                 }
             }
+    }
 
     @FXML
     protected void voltar(ActionEvent event){
