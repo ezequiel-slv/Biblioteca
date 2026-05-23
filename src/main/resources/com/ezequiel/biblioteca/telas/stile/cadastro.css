@@ -1,0 +1,65 @@
+#background1Cad{
+    -fx-background-color: #0A1120;
+}
+
+#backgroundCad2{
+    -fx-background-color: #0A192F;
+}
+
+#cadTitle{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: League Spartan;
+}
+
+#tf_email{
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#tf_senha{
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#tf_nome{
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#tf_email{
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#rb_masculino{
+    -fx-text-fill: #FFFFFF;
+}
+
+#rb_feminino{
+    -fx-text-fill: #FFFFFF;
+}
+
+#bt_salvar{
+    -fx-background-color: #404040;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#bt_salvar:hover{
+    -fx-background-color: #808080FF;
+    -fx-text-fill: #000000;
+}
+
+#bt_voltarCadastro{
+    -fx-background-color: #404040;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#bt_voltarCadastro:hover{
+    -fx-background-color: #808080FF;
+    -fx-text-fill: #000000;
+}
+

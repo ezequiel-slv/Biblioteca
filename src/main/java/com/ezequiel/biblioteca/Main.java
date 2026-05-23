@@ -32,6 +32,10 @@ public class Main extends Application {
         Parent telaCadastro = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/cadastro.fxml")));
         TelasService.cadastroScene = new Scene(telaCadastro);
 
+        String cssCadastro = Objects.requireNonNull(this.getClass()
+                .getResource("telas/stile/cadastro.css")).toExternalForm();
+        TelasService.cadastroScene.getStylesheets().add(cssCadastro);
+
         sg.setScene(TelasService.inicioScene);
         sg.show();
 

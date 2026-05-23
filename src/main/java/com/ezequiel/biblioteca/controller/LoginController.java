@@ -1,7 +1,6 @@
 package com.ezequiel.biblioteca.controller;
 
 import com.ezequiel.biblioteca.model.Estudante;
-import com.ezequiel.biblioteca.repository.LoginInterface;
 import com.ezequiel.biblioteca.service.LoginService;
 import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
@@ -10,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LoginController implements Initializable {
     @FXML
@@ -33,32 +29,12 @@ public class LoginController implements Initializable {
     public boolean validar() {
         StringBuilder aviso = new StringBuilder();
 
-        String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
-
-        Pattern paternEmail = Pattern.compile(emailValido);
-        Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
-
         if (tf_email.getText().isBlank()) {
             aviso.append("Campo Email é obrigatório!\n");
-
-            if (!matcherEmail.matches()) {
-                aviso.append("Email inválido!\n");
-                limpar();
-            }
         }
-
-        String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
-
-        Pattern paternSenha = Pattern.compile(senhaValida);
-        Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
 
         if (tf_senha.getText().isBlank()) {
             aviso.append("Campo Senha é obrigatório!\n");
-
-            if (!matcherSenha.matches()) {
-                aviso.append("Senha inválida!\n");
-                limpar();
-            }
         }
 
         if (!aviso.isEmpty()) {

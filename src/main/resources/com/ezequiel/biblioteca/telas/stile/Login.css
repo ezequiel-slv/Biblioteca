@@ -6,6 +6,11 @@
     -fx-background-color: #0A192F;
 }
 
+#loginTitle{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: League Spartan;
+}
+
 #tf_email{
     -fx-background-radius: 12;
     -fx-font-family: League Spartan;
