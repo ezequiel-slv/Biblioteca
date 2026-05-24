@@ -10,6 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginController implements Initializable {
     @FXML
@@ -29,12 +31,32 @@ public class LoginController implements Initializable {
     public boolean validar() {
         StringBuilder aviso = new StringBuilder();
 
-        if (tf_email.getText().isBlank()) {
-            aviso.append("Campo Email é obrigatório!\n");
+        if (!tf_email.getText().isEmpty()){
+            String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
+
+            Pattern paternEmail = Pattern.compile(emailValido);
+            Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
+
+            if (!matcherEmail.matches()){
+                aviso.append("Email inválido!\n");
+                tf_email.setText("");
+            }
+        }else {
+            aviso.append("Campo email é obrigatório\n");
         }
 
-        if (tf_senha.getText().isBlank()) {
-            aviso.append("Campo Senha é obrigatório!\n");
+        if (!tf_senha.getText().isEmpty()){
+            String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
+
+            Pattern paternSenha = Pattern.compile(senhaValida);
+            Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
+
+            if (!matcherSenha.matches()){
+                aviso.append("Senha inválida!\n");
+                tf_senha.setText("");
+            }
+        }else {
+            aviso.append("Campo senha é obrigatório\n");
         }
 
         if (!aviso.isEmpty()) {
@@ -42,7 +64,6 @@ public class LoginController implements Initializable {
             alert.setHeaderText("Erro");
             alert.setContentText(aviso.toString());
             alert.show();
-
             return false;
         } else {
             return true;
@@ -63,11 +84,6 @@ public class LoginController implements Initializable {
                 TelasService.mudarTela("cadastrar");
             }
         }
-    }
-
-    void limpar() {
-        tf_email.setText("");
-        tf_senha.setText("");
     }
 }
 

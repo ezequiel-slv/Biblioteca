@@ -35,7 +35,19 @@ public class CadastroController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        dp_dataNascimento.getEditor().setTextFormatter(
 
+                new TextFormatter<>(change -> {
+
+                    String texto = change.getControlNewText();
+
+                    if (texto.matches("[0-9/]*") && texto.length() <= 10) {
+                        return change;
+                    }
+
+                    return null;
+                })
+        );
     }
 
     Estudante estudante = new Estudante();
@@ -49,39 +61,42 @@ public class CadastroController implements Initializable {
     public boolean validar(){
         StringBuilder aviso = new StringBuilder();
 
-        if (tf_nome.getText().isEmpty()){
+        if (tf_nome.getText().isBlank()){
             aviso.append("Campo nome é obrigatório\n");
         }
 
-        String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
+        if (!tf_email.getText().isBlank()){
 
-        Pattern paternEmail = Pattern.compile(emailValido);
-        Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
+            String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
 
-        if (!matcherEmail.matches()){
-            aviso.append("Email inválido!\n");
-            limpar();
-        }
+            Pattern paternEmail = Pattern.compile(emailValido);
+            Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
 
-        if (tf_email.getText().isEmpty()){
+            if (!matcherEmail.matches()){
+                aviso.append("Email inválido!\n");
+                tf_email.setText("");
+            }
+        }else {
             aviso.append("Campo email é obrigatório\n");
         }
 
-        String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
+        if (!tf_senha.getText().isBlank()){
+            String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
 
-        Pattern paternSenha = Pattern.compile(senhaValida);
-        Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
+            Pattern paternSenha = Pattern.compile(senhaValida);
+            Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
 
-        if (!matcherSenha.matches()){
-            aviso.append("Senha inválida!\n");
-            limpar();
-        }
-
-        if (tf_senha.getText().isEmpty()){
+            if (!matcherSenha.matches()){
+                aviso.append("Senha inválida!\n");
+                tf_senha.setText("");
+            }
+        }else {
             aviso.append("Campo senha é obrigatório\n");
         }
 
-        if (dp_dataNascimento.getValue() == null){
+        String dataDigitada = dp_dataNascimento.getEditor().getText().trim();
+
+        if (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null){
             aviso.append("Campo data de nascimento é obrigatório\n");
         }
 
@@ -90,8 +105,6 @@ public class CadastroController implements Initializable {
             alert.setHeaderText("ERRO");
             alert.setContentText(aviso.toString());
             alert.show();
-            limpar();
-
             return  false;
         }else {
             return  true;
