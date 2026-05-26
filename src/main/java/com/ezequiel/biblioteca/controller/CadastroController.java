@@ -33,6 +33,21 @@ public class CadastroController implements Initializable {
     @FXML
     private TextField tf_senha;
 
+    @FXML
+    private Label alertUser;
+
+    @FXML
+    private Label alertDate;
+
+    @FXML
+    private Label alertEmail;
+
+    @FXML
+    private Label alertSenha;
+
+    @FXML
+    private Label alertGeral;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dp_dataNascimento.getEditor().setTextFormatter(
@@ -48,6 +63,12 @@ public class CadastroController implements Initializable {
                     return null;
                 })
         );
+
+        alertUser.setVisible(false);
+        alertDate.setVisible(false);
+        alertEmail.setVisible(false);
+        alertSenha.setVisible(false);
+        alertGeral.setVisible(false);
     }
 
     Estudante estudante = new Estudante();
@@ -59,10 +80,9 @@ public class CadastroController implements Initializable {
     }
 
     public boolean validar(){
-        StringBuilder aviso = new StringBuilder();
 
         if (tf_nome.getText().isBlank()){
-            aviso.append("Campo nome é obrigatório\n");
+            alertUser.setVisible(true);
         }
 
         if (!tf_email.getText().isBlank()){
@@ -73,11 +93,10 @@ public class CadastroController implements Initializable {
             Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
 
             if (!matcherEmail.matches()){
-                aviso.append("Email inválido!\n");
                 tf_email.setText("");
             }
         }else {
-            aviso.append("Campo email é obrigatório\n");
+            alertEmail.setVisible(true);
         }
 
         if (!tf_senha.getText().isBlank()){
@@ -87,27 +106,41 @@ public class CadastroController implements Initializable {
             Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
 
             if (!matcherSenha.matches()){
-                aviso.append("Senha inválida!\n");
                 tf_senha.setText("");
             }
         }else {
-            aviso.append("Campo senha é obrigatório\n");
+            alertSenha.setVisible(true);
         }
 
         String dataDigitada = dp_dataNascimento.getEditor().getText().trim();
 
         if (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null){
-            aviso.append("Campo data de nascimento é obrigatório\n");
+            alertDate.setVisible(true);
         }
 
-        if (!aviso.isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText("ERRO");
-            alert.setContentText(aviso.toString());
-            alert.show();
+        boolean validacaoGeral = tf_nome.getText().isBlank()
+                && tf_email.getText().isBlank()
+                && tf_senha.getText().isBlank()
+                && dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null;
+
+        boolean validacaoIndividual = tf_nome.getText().isBlank()
+                || tf_email.getText().isBlank()
+                || tf_senha.getText().isBlank()
+                || dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null;
+
+        if (validacaoGeral){
+            alertGeral.setVisible(true);
+            alertUser.setVisible(false);
+            alertDate.setVisible(false);
+            alertEmail.setVisible(false);
+            alertSenha.setVisible(false);
+
+            return  false;
+        }else if (validacaoIndividual){
+            alertGeral.setVisible(false);
             return  false;
         }else {
-            return  true;
+            return true;
         }
     }
 
