@@ -82,17 +82,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="alertUser" alignment="CENTER" contentDisplay="CENTER" prefHeight="4.0" prefWidth="305.0" text="Insira o nome de usuário!" GridPane.rowIndex="7">
-                           <GridPane.margin>
-                              <Insets top="20.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label fx:id="alertDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="305.0" text="Insira uma data de nasciemento" GridPane.rowIndex="7">
-                           <GridPane.margin>
-                              <Insets top="20.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label fx:id="alertEmail" alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="305.0" text="Insira um Email" GridPane.rowIndex="7">
+                        <Label fx:id="alert" alignment="CENTER" contentDisplay="CENTER" prefHeight="4.0" prefWidth="305.0" text="." GridPane.rowIndex="7">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>

@@ -63,19 +63,8 @@
     -fx-text-fill: #000000;
 }
 
-#alertUser{
+#alert{
     -fx-text-fill: #FF3B30;
 }
 
-#alertDate{
-    -fx-text-fill: #FF3B30;
-}
-
-#alertEmail{
-    -fx-text-fill: #FF3B30;
-}
-
-#alertGeral{
-    -fx-text-fill: #FF3B30;
-}
 

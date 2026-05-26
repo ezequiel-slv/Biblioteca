@@ -34,19 +34,7 @@ public class CadastroController implements Initializable {
     private TextField tf_senha;
 
     @FXML
-    private Label alertUser;
-
-    @FXML
-    private Label alertDate;
-
-    @FXML
-    private Label alertEmail;
-
-    @FXML
-    private Label alertSenha;
-
-    @FXML
-    private Label alertGeral;
+    private Label alert;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,12 +51,7 @@ public class CadastroController implements Initializable {
                     return null;
                 })
         );
-
-        alertUser.setVisible(false);
-        alertDate.setVisible(false);
-        alertEmail.setVisible(false);
-        alertSenha.setVisible(false);
-        alertGeral.setVisible(false);
+        alert.setVisible(false);
     }
 
     Estudante estudante = new Estudante();
@@ -81,8 +64,23 @@ public class CadastroController implements Initializable {
 
     public boolean validar(){
 
-        if (tf_nome.getText().isBlank()){
-            alertUser.setVisible(true);
+        String dataDigitada = dp_dataNascimento.getEditor().getText().trim();
+
+        if (tf_nome.getText().isBlank() && tf_email.getText().isBlank()
+                && !(dataDigitada.isEmpty()) || dp_dataNascimento.getValue() != null
+                && !(tf_senha.getText().isBlank())){
+
+            alert.setText("Insira usuário e email!");
+            alert.setVisible(true);
+
+        }else if (tf_nome.getText().isBlank()
+                && !(dataDigitada.isEmpty()) || dp_dataNascimento.getValue() != null
+                && !(tf_email.getText().isBlank())
+                && !(tf_senha.getText().isBlank())){
+
+            alert.setText("Insira um nome de usuário!");
+            alert.setVisible(true);
+            
         }
 
         if (!tf_email.getText().isBlank()){
@@ -96,7 +94,7 @@ public class CadastroController implements Initializable {
                 tf_email.setText("");
             }
         }else {
-            alertEmail.setVisible(true);
+            alert.setVisible(false);
         }
 
         if (!tf_senha.getText().isBlank()){
@@ -109,13 +107,11 @@ public class CadastroController implements Initializable {
                 tf_senha.setText("");
             }
         }else {
-            alertSenha.setVisible(true);
+            alert.setVisible(true);
         }
 
-        String dataDigitada = dp_dataNascimento.getEditor().getText().trim();
-
         if (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null){
-            alertDate.setVisible(true);
+            alert.setVisible(true);
         }
 
         boolean validacaoGeral = tf_nome.getText().isBlank()
@@ -123,21 +119,10 @@ public class CadastroController implements Initializable {
                 && tf_senha.getText().isBlank()
                 && dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null;
 
-        boolean validacaoIndividual = tf_nome.getText().isBlank()
-                || tf_email.getText().isBlank()
-                || tf_senha.getText().isBlank()
-                || dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null;
-
         if (validacaoGeral){
-            alertGeral.setVisible(true);
-            alertUser.setVisible(false);
-            alertDate.setVisible(false);
-            alertEmail.setVisible(false);
-            alertSenha.setVisible(false);
+            alert.setText("Preencha os campos para prosseguir");
+            alert.setVisible(true);
 
-            return  false;
-        }else if (validacaoIndividual){
-            alertGeral.setVisible(false);
             return  false;
         }else {
             return true;
@@ -162,7 +147,7 @@ public class CadastroController implements Initializable {
             }
 
             cadastroService.inserir(estudante);
-            limpar();
+            //limpar();
         }
     }
 
