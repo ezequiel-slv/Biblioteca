@@ -2,7 +2,6 @@ package com.ezequiel.biblioteca.controller;
 
 import com.ezequiel.biblioteca.model.Estudante;
 import com.ezequiel.biblioteca.service.CadastroService;
-import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -65,56 +64,105 @@ public class CadastroController implements Initializable {
     public boolean validar(){
         String dataDigitada = dp_dataNascimento.getEditor().getText().trim();
 
-        boolean validacaoGeral = tf_nome.getText().isBlank()
-                && tf_email.getText().isBlank()
-                && tf_senha.getText().isBlank()
-                && dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null;
 
-            if (!tf_email.getText().isBlank()) {
 
-                String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
+        int isBlank = 0;
+        int isInvalid = 0;
 
-                Pattern paternEmail = Pattern.compile(emailValido);
-                Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
-
-                if (!matcherEmail.matches()) {
-
-                    alert.setText("Email inválido!");
-                    tf_email.setText("");
-                }
-            }
-
-            if (!tf_senha.getText().isBlank()) {
-
-                String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
-
-                Pattern paternSenha = Pattern.compile(senhaValida);
-                Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
-
-                if (!matcherSenha.matches()) {
-
-                    alert.setText("Senha inválida");
-                    tf_senha.setText("");
-                }
-            }
-
-        if (tf_nome.getText().isBlank()
-                && !(dataDigitada.isEmpty()) || dp_dataNascimento.getValue() != null
-                && !(tf_email.getText().isBlank())
-                && !(tf_senha.getText().isBlank())){
-
-            alert.setText(null);
-            alert.setText("Insira um nome de usuário!");
-            alert.setVisible(true);
-
+        if (tf_nome.getText().isBlank()){
+            isBlank = 1;
         }
 
-        if (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null){
-            alert.setVisible(true);
+        if (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) {
+            isBlank = 2;
         }
 
-        if (validacaoGeral){
-            alert.setText("Preencha os campos para prosseguir");
+        boolean emailBlank = tf_email.getText().isBlank();
+        boolean passwordBlank = tf_senha.getText().isBlank();
+
+        if (emailBlank) {
+            isBlank = 3;
+
+        }else {
+            String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
+
+            Pattern paternEmail = Pattern.compile(emailValido);
+            Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
+
+            if (!matcherEmail.matches()) {
+                isInvalid = 1;
+            }
+        }
+
+        if (passwordBlank){
+            isBlank = 4;
+
+        }else {
+            String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
+
+            Pattern paternSenha = Pattern.compile(senhaValida);
+            Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
+
+            if (!matcherSenha.matches()) {
+                isInvalid = 2;
+            }
+        }
+
+        if (emailBlank && passwordBlank){
+            isBlank = 5;
+        }else {
+            String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
+
+            Pattern paternEmail = Pattern.compile(emailValido);
+            Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
+
+            String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
+
+            Pattern paternSenha = Pattern.compile(senhaValida);
+            Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
+
+            if (!(matcherEmail.matches() && matcherSenha.matches())) {
+                isInvalid = 3;
+            }
+        }
+
+        switch (isBlank){
+            case 1:
+                alert.setText("Insira o nome de usuário!");
+                alert.setVisible(true);
+                break;
+            case 2:
+                alert.setText("Insira a data de nascimento!");
+                alert.setVisible(true);
+                break;
+            case 3:
+                alert.setText("Insira o email!");
+                alert.setVisible(true);
+                break;
+            case 4:
+                alert.setText("Insira a senha");
+                alert.setVisible(true);
+                break;
+        }
+
+        switch (isInvalid){
+            case 1:
+                alert.setText("Email inválido!");
+                tf_email.setText("");
+                break;
+            case 2:
+                alert.setText("Senha inválida");
+                tf_senha.setText("");
+                break;
+            case 3:
+                alert.setText("Email e Senha inválidos");
+                tf_email.setText("");
+                tf_senha.setText("");
+        }
+
+        boolean validacaoGeral = tf_nome.getText().isBlank();
+
+        if (!alert.getText().isEmpty()){
             alert.setVisible(true);
 
             return  false;
@@ -141,13 +189,8 @@ public class CadastroController implements Initializable {
             }
 
             cadastroService.inserir(estudante);
-            //limpar();
+            limpar();
         }
-    }
-
-    @FXML
-    void voltarCadastro(ActionEvent event){
-        TelasService.mudarTela("voltarCadastro");
     }
 
     void limpar(){
