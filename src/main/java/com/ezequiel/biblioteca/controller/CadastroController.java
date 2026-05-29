@@ -58,18 +58,23 @@ public class CadastroController implements Initializable {
 
     @FXML
     public LocalDate getDate() {
-         return dp_dataNascimento.getValue();
+        return dp_dataNascimento.getValue();
     }
 
-    public boolean validar(){
+    public boolean validar() {
+
         String dataDigitada = dp_dataNascimento.getEditor().getText().trim();
 
+        boolean validacaoGeral = (tf_nome.getText().isBlank()
+                && tf_email.getText().isBlank()
+                && tf_senha.getText().isBlank()
+                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null));
 
 
         int isBlank = 0;
         int isInvalid = 0;
 
-        if (tf_nome.getText().isBlank()){
+        if (tf_nome.getText().isBlank()) {
             isBlank = 1;
         }
 
@@ -82,8 +87,7 @@ public class CadastroController implements Initializable {
 
         if (emailBlank) {
             isBlank = 3;
-
-        }else {
+        } else if(!passwordBlank){
             String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
 
             Pattern paternEmail = Pattern.compile(emailValido);
@@ -94,10 +98,9 @@ public class CadastroController implements Initializable {
             }
         }
 
-        if (passwordBlank){
+        if (passwordBlank) {
             isBlank = 4;
-
-        }else {
+        } else if (!emailBlank){
             String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
 
             Pattern paternSenha = Pattern.compile(senhaValida);
@@ -110,42 +113,35 @@ public class CadastroController implements Initializable {
 
         if (emailBlank && passwordBlank){
             isBlank = 5;
-        }else {
-            String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
-
-            Pattern paternEmail = Pattern.compile(emailValido);
-            Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
-
-            String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
-
-            Pattern paternSenha = Pattern.compile(senhaValida);
-            Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
-
-            if (!(matcherEmail.matches() && matcherSenha.matches())) {
-                isInvalid = 3;
-            }
         }
 
-        switch (isBlank){
+
+        if (validacaoGeral) {
+            isBlank = 6;
+        }
+
+        switch (isBlank) {
             case 1:
-                alert.setText("Insira o nome de usuário!");
-                alert.setVisible(true);
+                alert.setText("Insira o nome de usuário");
                 break;
             case 2:
-                alert.setText("Insira a data de nascimento!");
-                alert.setVisible(true);
+                alert.setText("Insira a data de nascimento");
                 break;
             case 3:
-                alert.setText("Insira o email!");
-                alert.setVisible(true);
+                alert.setText("Insira o email");
                 break;
             case 4:
                 alert.setText("Insira a senha");
-                alert.setVisible(true);
+                break;
+            case 5:
+                alert.setText("Insira a senha e o email");
+                break;
+            case 6:
+                alert.setText("Preencha os campos para concluir");
                 break;
         }
 
-        switch (isInvalid){
+        switch (isInvalid) {
             case 1:
                 alert.setText("Email inválido!");
                 tf_email.setText("");
@@ -154,49 +150,44 @@ public class CadastroController implements Initializable {
                 alert.setText("Senha inválida");
                 tf_senha.setText("");
                 break;
-            case 3:
-                alert.setText("Email e Senha inválidos");
-                tf_email.setText("");
-                tf_senha.setText("");
         }
 
-        boolean validacaoGeral = tf_nome.getText().isBlank();
-
-        if (!alert.getText().isEmpty()){
+        if (!alert.getText().isEmpty()) {
+            alert.getText();
             alert.setVisible(true);
 
-            return  false;
-        }else {
+            return false;
+        } else {
             return true;
         }
     }
 
-    @FXML
-    void salvarDados(ActionEvent event) {
-        if (validar()){
-            estudante.setNome(tf_nome.getText());
-            estudante.setEmail(tf_email.getText());
-            estudante.setSenha(tf_senha.getText());
+        @FXML
+        void salvarDados (ActionEvent event){
+            if (validar()) {
+                estudante.setNome(tf_nome.getText());
+                estudante.setEmail(tf_email.getText());
+                estudante.setSenha(tf_senha.getText());
 
-            estudante.setDataNascimento(getDate());
+                estudante.setDataNascimento(getDate());
 
-            if (rb_masculino.isSelected()){
-                estudante.setSexo("Masculino");
+                if (rb_masculino.isSelected()) {
+                    estudante.setSexo("Masculino");
+                }
+
+                if (rb_feminino.isSelected()) {
+                    estudante.setSexo("Feminino");
+                }
+
+                cadastroService.inserir(estudante);
+                limpar();
             }
+        }
 
-            if (rb_feminino.isSelected()){
-                estudante.setSexo("Feminino");
-            }
-
-            cadastroService.inserir(estudante);
-            limpar();
+        void limpar () {
+            tf_nome.setText("");
+            tf_email.setText("");
+            tf_senha.setText("");
+            dp_dataNascimento.setValue(null);
         }
     }
-
-    void limpar(){
-        tf_nome.setText("");
-        tf_email.setText("");
-        tf_senha.setText("");
-        dp_dataNascimento.setValue(null);
-    }
-}
