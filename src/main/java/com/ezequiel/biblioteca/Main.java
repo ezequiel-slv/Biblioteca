@@ -38,7 +38,5 @@ public class Main extends Application {
 
         sg.setScene(TelasService.inicioScene);
         sg.show();
-
-        String stg = TelasService.getStg();
     }
 }
