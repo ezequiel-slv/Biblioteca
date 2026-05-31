@@ -44,6 +44,7 @@
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 12;
     -fx-font-family: League Spartan;
+    -fx-font-weight: bold;
 }
 
 #bt_salvar:hover{

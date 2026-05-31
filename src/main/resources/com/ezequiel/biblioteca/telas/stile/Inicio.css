@@ -17,11 +17,13 @@
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 12;
     -fx-font-family: League Spartan;
+    -fx-font-weight: bold;
 }
 
 #btEntrar:hover{
     -fx-background-color: #808080FF;
     -fx-text-fill: #000000;
+    -fx-font-weight: bold;
 }
 
 #btCadastrar{
@@ -29,9 +31,11 @@
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 12;
     -fx-font-family: League Spartan;
+    -fx-font-weight: bold;
 }
 
 #btCadastrar:hover{
     -fx-background-color: #808080FF;
     -fx-text-fill: #000000;
+    -fx-font-weight: bold;
 }
