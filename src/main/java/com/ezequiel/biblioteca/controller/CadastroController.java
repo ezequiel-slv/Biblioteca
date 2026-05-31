@@ -135,37 +135,46 @@ public class CadastroController implements Initializable {
         }
 
 
-        boolean emailBlank = tf_email.getText().isBlank();
-        boolean passwordBlank = tf_senha.getText().isBlank();
+        if (tf_email.getText().isBlank()
+                && !tf_nome.getText().isBlank()
+                && !tf_senha.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
+            isBlank = 11;
+        }
 
+        if (!tf_nome.getText().isBlank()
+                && !tf_email.getText().isBlank()
+                && !tf_senha.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)){
 
-        if (!(tf_nome.getText().isBlank()
-                && (!(dataDigitada.isEmpty()) || dp_dataNascimento.getValue() != null))) {
+            String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
 
-            if (emailBlank) {
-                isBlank = 11;
-            } else if (!passwordBlank) {
-                String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
+            Pattern paternEmail = Pattern.compile(emailValido);
+            Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
 
-                Pattern paternEmail = Pattern.compile(emailValido);
-                Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
-
-                if (!matcherEmail.matches()) {
-                    isInvalid = 1;
-                }
+            if (!matcherEmail.matches()) {
+                isInvalid = 1;
             }
+        }
 
-            if (passwordBlank) {
-                isBlank = 12;
-            } else if (!emailBlank) {
-                String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
+        if (tf_senha.getText().isBlank()
+                && !tf_nome.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+                && !tf_email.getText().isBlank()){
+            isBlank = 12;
+        }
 
-                Pattern paternSenha = Pattern.compile(senhaValida);
-                Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
+        if (!tf_email.getText().isBlank()
+                && !tf_nome.getText().isBlank()
+                && !tf_senha.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
+            String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
 
-                if (!matcherSenha.matches()) {
-                    isInvalid = 2;
-                }
+            Pattern paternSenha = Pattern.compile(senhaValida);
+            Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
+
+            if (!matcherSenha.matches()) {
+                isInvalid = 2;
             }
         }
 
