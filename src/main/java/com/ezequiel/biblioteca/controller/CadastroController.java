@@ -69,24 +69,29 @@ public class CadastroController implements Initializable {
         int isBlank = 0;
         int isInvalid = 0;
 
-        if (tf_nome.getText().isBlank() && !tf_email.getText().isBlank()
+        if (tf_nome.getText().isBlank()
+                && !tf_email.getText().isBlank()
                 && !tf_senha.getText().isBlank()
-                && (!dataDigitada.isEmpty() || dp_dataNascimento.getValue() != null)) {
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
             isBlank = 1;
         }
 
-        if (tf_nome.getText().isBlank() && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && !tf_email.getText().isBlank() && !tf_senha.getText().isBlank()) {
+        if (tf_nome.getText().isBlank()
+                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+                && !tf_email.getText().isBlank()
+                && !tf_senha.getText().isBlank()) {
             isBlank = 2;
         }
 
-        if (tf_nome.getText().isBlank() && tf_email.getText().isBlank()
-                && (!dataDigitada.isEmpty() || dp_dataNascimento.getValue() != null)
+        if (tf_nome.getText().isBlank()
+                && tf_email.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
                 && !tf_senha.getText().isBlank()) {
             isBlank = 3;
         }
 
-        if (tf_nome.getText().isBlank() && tf_senha.getText().isBlank()
+        if (tf_nome.getText().isBlank()
+                && tf_senha.getText().isBlank()
                 && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
                 && !tf_email.getText().isBlank()) {
             isBlank = 4;
@@ -94,8 +99,23 @@ public class CadastroController implements Initializable {
 
         if ((tf_nome.getText().isBlank()
                 && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && tf_email.getText().isBlank()) && !tf_senha.getText().isBlank()){
+                && tf_email.getText().isBlank())
+                && !tf_senha.getText().isBlank()){
             isBlank = 5;
+        }
+
+        if (tf_nome.getText().isBlank()
+                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+                && tf_senha.getText().isBlank()
+                && !tf_email.getText().isBlank()){
+            isBlank = 6;
+        }
+
+        if (tf_nome.getText().isBlank()
+                && tf_email.getText().isBlank()
+                && tf_senha.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)){
+            isBlank = 7;
         }
 
 
@@ -104,27 +124,34 @@ public class CadastroController implements Initializable {
                 && !tf_nome.getText().isBlank()
                 && !tf_email.getText().isBlank()
                 && !tf_senha.getText().isBlank()) {
-            isBlank = 6;
-        }
-
-        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) && tf_email.getText().isBlank()
-                && !tf_nome.getText().isBlank()
-                && !tf_senha.getText().isBlank()){
-            isBlank = 7;
-        }
-
-        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) && tf_senha.getText().isBlank()
-                && !tf_email.getText().isBlank()
-                && !tf_nome.getText().isBlank()){
             isBlank = 8;
         }
 
+        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+                && tf_email.getText().isBlank()
+                && !tf_nome.getText().isBlank()
+                && !tf_senha.getText().isBlank()){
+            isBlank = 9;
+        }
 
+        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+                && tf_senha.getText().isBlank()
+                && !tf_email.getText().isBlank()
+                && !tf_nome.getText().isBlank()){
+            isBlank = 10;
+        }
+
+        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+                && tf_email.getText().isBlank()
+                && tf_senha.getText().isBlank()
+                && !tf_nome.getText().isBlank()){
+            isBlank = 11;
+        }
 
         if (tf_email.getText().isBlank() && tf_senha.getText().isBlank()
                 && !tf_nome.getText().isBlank()
                 && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)){
-            isBlank = 9;
+            isBlank = 12;
         }
 
         if (tf_nome.getText().isBlank()
@@ -206,25 +233,25 @@ public class CadastroController implements Initializable {
                 alert.setText("Insira o nome, data e email");
                 break;
             case 6:
-                alert.setText("Insira a data de nascimento");
+                alert.setText("Insira o nome, data e senha");
                 break;
             case 7:
-                alert.setText("Insira data e email");
+                alert.setText("Insira o nome, email e senha");
                 break;
             case 8:
-                alert.setText("Insira data e senha");
+                alert.setText("Insira data de nascimento");
                 break;
             case 9:
-                alert.setText("Insira email e senha");
+                alert.setText("Insira data e email");
                 break;
             case 10:
-                alert.setText("Preencha os campos");
+                alert.setText("Insira data e senha");
                 break;
             case 11:
-                alert.setText("Insira o email");
+                alert.setText("Insira a data, email e senha");
                 break;
             case 12:
-                alert.setText("Insira a senha");
+                alert.setText("Insira email e senha");
                 break;
         }
 
