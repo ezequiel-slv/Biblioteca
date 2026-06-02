@@ -82,7 +82,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="alert" alignment="CENTER" contentDisplay="CENTER" prefHeight="4.0" prefWidth="305.0" text="." GridPane.rowIndex="7">
+                        <Label fx:id="alertSignUp" alignment="CENTER" contentDisplay="CENTER" prefHeight="4.0" prefWidth="305.0" text=" . " GridPane.rowIndex="7">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>

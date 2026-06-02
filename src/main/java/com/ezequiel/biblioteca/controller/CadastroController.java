@@ -33,7 +33,7 @@ public class CadastroController implements Initializable {
     private TextField tf_senha;
 
     @FXML
-    private Label alert;
+    private Label alertSignUp;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,7 +50,9 @@ public class CadastroController implements Initializable {
                     return null;
                 })
         );
-        alert.setVisible(false);
+
+        alertSignUp.setText("");
+        alertSignUp.setVisible(false);
     }
 
     Estudante estudante = new Estudante();
@@ -65,100 +67,90 @@ public class CadastroController implements Initializable {
 
         String dataDigitada = dp_dataNascimento.getEditor().getText().trim();
 
-
-        int isBlank = 0;
-        int isInvalid = 0;
-
         if (tf_nome.getText().isBlank()
                 && !tf_email.getText().isBlank()
                 && !tf_senha.getText().isBlank()
                 && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
-            isBlank = 1;
+
+            alertSignUp.setText("Insira o nome de usuário");
         }
 
-        if (tf_nome.getText().isBlank()
-                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+        if (tf_nome.getText().isBlank() && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
                 && !tf_email.getText().isBlank()
                 && !tf_senha.getText().isBlank()) {
-            isBlank = 2;
+
+            alertSignUp.setText("Insira o nome e data");
+//            Blank: condição 2;
         }
 
-        if (tf_nome.getText().isBlank()
-                && tf_email.getText().isBlank()
+        if (tf_nome.getText().isBlank() && tf_email.getText().isBlank()
                 && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
                 && !tf_senha.getText().isBlank()) {
-            isBlank = 3;
+
+            alertSignUp.setText("Insira o nome e email");
+//            Blank: condição 3;
         }
 
-        if (tf_nome.getText().isBlank()
-                && tf_senha.getText().isBlank()
+        if (tf_nome.getText().isBlank() && tf_senha.getText().isBlank()
                 && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
                 && !tf_email.getText().isBlank()) {
-            isBlank = 4;
+
+            alertSignUp.setText("Insira o nome e senha");
+//            Blank: condição 4;
         }
 
-        if ((tf_nome.getText().isBlank()
-                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && tf_email.getText().isBlank())
+        if ((tf_nome.getText().isBlank() && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) && tf_email.getText().isBlank())
                 && !tf_senha.getText().isBlank()){
-            isBlank = 5;
+
+            alertSignUp.setText("Insira o nome, data e email");
+//            Blank: condição 5;
         }
 
-        if (tf_nome.getText().isBlank()
-                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && tf_senha.getText().isBlank()
+        if (tf_nome.getText().isBlank() && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) && tf_senha.getText().isBlank()
                 && !tf_email.getText().isBlank()){
-            isBlank = 6;
+
+            alertSignUp.setText("Insira o nome, data e senha");
+//            Blank: condição 6;
         }
 
-        if (tf_nome.getText().isBlank()
-                && tf_email.getText().isBlank()
-                && tf_senha.getText().isBlank()
+        if (tf_nome.getText().isBlank() && tf_email.getText().isBlank() && tf_senha.getText().isBlank()
                 && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)){
-            isBlank = 7;
-        }
 
+            alertSignUp.setText("Insira o nome, email e senha");
+//            Blank: condição 7;
+        }
 
 
         if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
                 && !tf_nome.getText().isBlank()
                 && !tf_email.getText().isBlank()
                 && !tf_senha.getText().isBlank()) {
-            isBlank = 8;
+
+            alertSignUp.setText("Insira data de nascimento");
+//            Blank: condição = 8;
         }
 
-        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && tf_email.getText().isBlank()
+        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) && tf_email.getText().isBlank()
                 && !tf_nome.getText().isBlank()
                 && !tf_senha.getText().isBlank()){
-            isBlank = 9;
+
+            alertSignUp.setText("Insira data e email");
+//            Blank: condição 9;
         }
 
-        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && tf_senha.getText().isBlank()
+        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) && tf_senha.getText().isBlank()
                 && !tf_email.getText().isBlank()
                 && !tf_nome.getText().isBlank()){
-            isBlank = 10;
+
+            alertSignUp.setText("Insira data e senha");
+//            Blank: condição 10;
         }
 
-        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && tf_email.getText().isBlank()
-                && tf_senha.getText().isBlank()
+        if ((dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null) && tf_email.getText().isBlank() && tf_senha.getText().isBlank()
                 && !tf_nome.getText().isBlank()){
-            isBlank = 11;
-        }
 
-        if (tf_email.getText().isBlank() && tf_senha.getText().isBlank()
-                && !tf_nome.getText().isBlank()
-                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)){
-            isBlank = 12;
-        }
-
-        if (tf_nome.getText().isBlank()
-                && tf_email.getText().isBlank()
-                && tf_senha.getText().isBlank()
-                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
-            isBlank = 10;
+            alertSignUp.setText("Insira a data, email e senha");
+//            Blank: condição 11;
         }
 
 
@@ -166,8 +158,30 @@ public class CadastroController implements Initializable {
                 && !tf_nome.getText().isBlank()
                 && !tf_senha.getText().isBlank()
                 && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
-            isBlank = 11;
+
+            alertSignUp.setText("Insira o email");
+//            Blank: condição 12
         }
+
+        if (tf_email.getText().isBlank() && tf_senha.getText().isBlank()
+                && !tf_nome.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)){
+
+            alertSignUp.setText("Insira email e senha");
+//            Blank: condição 13;
+        }
+
+
+        if (tf_senha.getText().isBlank()
+                && !tf_nome.getText().isBlank()
+                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
+                && !tf_email.getText().isBlank()){
+
+            alertSignUp.setText("Insira a senha");
+//            Blank: condição 14
+        }
+
+        int isInvalid = 0;
 
         if (!tf_nome.getText().isBlank()
                 && !tf_email.getText().isBlank()
@@ -179,85 +193,53 @@ public class CadastroController implements Initializable {
             Pattern paternEmail = Pattern.compile(emailValido);
             Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
 
-            if (!matcherEmail.matches()) {
-                isInvalid = 1;
-            }
-        }
-
-        if (tf_senha.getText().isBlank()
-                && !tf_nome.getText().isBlank()
-                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)
-                && !tf_email.getText().isBlank()){
-            isBlank = 12;
-        }
-
-        if (!tf_email.getText().isBlank()
-                && !tf_nome.getText().isBlank()
-                && !tf_senha.getText().isBlank()
-                && !(dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
             String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
 
             Pattern paternSenha = Pattern.compile(senhaValida);
             Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
 
-            if (!matcherSenha.matches()) {
+            if (!matcherEmail.matches() && matcherSenha.matches()) {
+                isInvalid = 1;
+
+//                Invalid: condição 1
+            } else if (!matcherSenha.matches() && matcherEmail.matches()) {
                 isInvalid = 2;
+
+//                Invalid: condição 2
+            } else if (!(matcherEmail.matches() && matcherSenha.matches())) {
+                isInvalid = 3;
+
+//                Invalid: condição 3
             }
         }
 
-        switch (isInvalid) {
+        switch (isInvalid){
             case 1:
-                alert.setText("Email inválido!");
-                tf_email.setText("");
+                alertSignUp.setText("Email inválido");
                 break;
             case 2:
-                alert.setText("Senha inválida");
+                alertSignUp.setText("Senha inválida");
+                break;
+            case 3:
+                alertSignUp.setText("Email e senha inválidos");
+                tf_email.setText("");
                 tf_senha.setText("");
                 break;
         }
 
-        switch (isBlank) {
-            case 1:
-                alert.setText("Insira o nome de usuário");
-                break;
-            case 2:
-                alert.setText("Insira o nome e data");
-                break;
-            case 3:
-                alert.setText("Insira o nome e email");
-                break;
-            case 4:
-                alert.setText("Insira o nome e senha");
-                break;
-            case 5:
-                alert.setText("Insira o nome, data e email");
-                break;
-            case 6:
-                alert.setText("Insira o nome, data e senha");
-                break;
-            case 7:
-                alert.setText("Insira o nome, email e senha");
-                break;
-            case 8:
-                alert.setText("Insira data de nascimento");
-                break;
-            case 9:
-                alert.setText("Insira data e email");
-                break;
-            case 10:
-                alert.setText("Insira data e senha");
-                break;
-            case 11:
-                alert.setText("Insira a data, email e senha");
-                break;
-            case 12:
-                alert.setText("Insira email e senha");
-                break;
+
+        if (tf_nome.getText().isBlank()
+                && tf_email.getText().isBlank()
+                && tf_senha.getText().isBlank()
+                && (dataDigitada.isEmpty() || dp_dataNascimento.getValue() == null)) {
+
+            alertSignUp.setText("Preencha os campos");
         }
 
-        if (!alert.getText().isEmpty()) {
-            alert.getText();
-            alert.setVisible(true);
+
+        if (!alertSignUp.getText().isEmpty()) {
+            alertSignUp.getText();
+            alertSignUp.setVisible(true);
 
             return false;
         } else {

@@ -6,7 +6,7 @@ import com.ezequiel.biblioteca.service.TelasService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,50 +20,80 @@ public class LoginController implements Initializable {
     @FXML
     private TextField tf_email;
 
+    @FXML
+    private Label alertLogin;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        alertLogin.setText("");
+        alertLogin.setVisible(false);
     }
 
     Estudante estudante = new Estudante();
     LoginService loginService = new LoginService();
 
     public boolean validar() {
-        StringBuilder aviso = new StringBuilder();
 
-        if (!tf_email.getText().isEmpty()){
+        if (tf_email.getText().isBlank() && !tf_senha.getText().isBlank()) {
+            alertLogin.setText("Insira o email");
+        }
+
+        if (!tf_email.getText().isBlank() && tf_senha.getText().isBlank()) {
+            alertLogin.setText("Insira a senha");
+        }
+
+        if (tf_email.getText().isBlank() && tf_senha.getText().isBlank()) {
+
+            alertLogin.setText("Insira a senha e o email");
+        }
+
+        int isInvalid = 0;
+
+        if (!tf_email.getText().isBlank() && !tf_senha.getText().isBlank()){
+
             String emailValido = "([a-zA-Z0-9._+-]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,})";
 
             Pattern paternEmail = Pattern.compile(emailValido);
             Matcher matcherEmail = paternEmail.matcher(tf_email.getText());
 
-            if (!matcherEmail.matches()){
-                aviso.append("Email inválido!\n");
-                tf_email.setText("");
-            }
-        }else {
-            aviso.append("Campo email é obrigatório\n");
-        }
-
-        if (!tf_senha.getText().isEmpty()){
             String senhaValida = "^(?=.*[a-zA-Z])(?=.*\\d).+$";
 
             Pattern paternSenha = Pattern.compile(senhaValida);
             Matcher matcherSenha = paternSenha.matcher(tf_senha.getText());
 
-            if (!matcherSenha.matches()){
-                aviso.append("Senha inválida!\n");
-                tf_senha.setText("");
+            if (!matcherEmail.matches() && matcherSenha.matches()) {
+                isInvalid = 1;
+
+            } else if (!matcherSenha.matches() && matcherEmail.matches()) {
+                isInvalid = 2;
+
+            } else if (!(matcherEmail.matches() && matcherSenha.matches())) {
+
+                isInvalid = 3;
             }
-        }else {
-            aviso.append("Campo senha é obrigatório\n");
         }
 
-        if (!aviso.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText("Erro");
-            alert.setContentText(aviso.toString());
-            alert.show();
+        switch (isInvalid){
+            case 1:
+                alertLogin.setText("Email inválido");
+                tf_email.setText("");
+                break;
+            case 2:
+                alertLogin.setText("Senha inválida");
+                tf_senha.setText("");
+                break;
+            case 3:
+                alertLogin.setText("Email e senha inválidos");
+                tf_email.setText("");
+                tf_senha.setText("");
+                break;
+        }
+
+        if (!alertLogin.getText().isEmpty()) {
+            alertLogin.getText();
+            alertLogin.setVisible(true);
+
             return false;
         } else {
             return true;
@@ -79,7 +109,8 @@ public class LoginController implements Initializable {
             boolean loginEstudante = loginService.buscar(estudante);
 
             if (loginEstudante) {
-                System.out.println("Login bem sucedido");
+                alertLogin.setText("Login bem sucedido");
+                alertLogin.setVisible(true);
             } else {
                 TelasService.mudarTela("cadastrar");
             }
