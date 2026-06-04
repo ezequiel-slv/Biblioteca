@@ -109,8 +109,7 @@ public class LoginController implements Initializable {
             boolean loginEstudante = loginService.buscar(estudante);
 
             if (loginEstudante) {
-                alertLogin.setText("Login bem sucedido");
-                alertLogin.setVisible(true);
+                TelasService.mudarTela("loginSuccessfull");
             } else {
                 TelasService.mudarTela("cadastrar");
             }

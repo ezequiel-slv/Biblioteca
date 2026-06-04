@@ -8,6 +8,7 @@ public class TelasService {
     public static Scene inicioScene;
     public static Scene loginScene;
     public static Scene cadastroScene;
+    public static Scene home;
 
 
     public static void mudarTela(String string){
@@ -20,6 +21,8 @@ public class TelasService {
                 break;
             case "voltarLogin", "voltarCadastro":
                 stage.setScene(inicioScene);
+            case "loginSuccessfull":
+                stage.setScene(home);
             default:
                 break;
         }
