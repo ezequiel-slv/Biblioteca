@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LoginController implements Initializable {
+public class LoginEmailController implements Initializable {
     @FXML
     private TextField tf_senha;
 
@@ -101,7 +101,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void entrar(ActionEvent event) {
+    void loginEmail(ActionEvent event) {
         if (validar()) {
             estudante.setEmail(tf_email.getText());
             estudante.setSenha(tf_senha.getText());
