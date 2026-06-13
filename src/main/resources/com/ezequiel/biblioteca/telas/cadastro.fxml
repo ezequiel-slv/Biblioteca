@@ -16,10 +16,10 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.biblioteca.controller.CadastroController">
-   <right>
+   <center>
       <AnchorPane fx:id="backgroundCad2" BorderPane.alignment="CENTER">
          <children>
-            <StackPane prefHeight="500.0" prefWidth="459.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <StackPane layoutX="-4.0" prefHeight="500.0" prefWidth="463.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="270.0" prefWidth="305.0">
                     <columnConstraints>
@@ -93,8 +93,5 @@
             </StackPane>
          </children>
       </AnchorPane>
-   </right>
-   <center>
-      <AnchorPane fx:id="background1Cad" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

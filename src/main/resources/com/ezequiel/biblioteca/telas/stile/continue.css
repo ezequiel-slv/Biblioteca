@@ -1,9 +1,5 @@
-#backgroundLogin1{
+#bgContinue{
     -fx-background-color: #0A1120;
-}
-
-#backgroundLogin2{
-    -fx-background-color: #0A192F;
 }
 
 #loginTitle{
@@ -21,18 +17,42 @@
     -fx-font-family: League Spartan;
 }
 
-#btEntrarLogin{
+#btLoginEmail{
     -fx-background-color: #404040;
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 12;
     -fx-font-family: League Spartan;
 }
 
-#btEntrarLogin:hover{
+#btLoginEmail:hover{
     -fx-background-color: #808080FF;
     -fx-text-fill: #000000;
 }
 
-#alertLogin{
+#btLoginGoogle{
+    -fx-background-color: #404040;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#btLoginGoogle:hover{
+    -fx-background-color: #808080FF;
+    -fx-text-fill: #000000;
+}
+
+#idOr{
+    -fx-text-fill: #FFFFFF;
+}
+
+#idNoAccount{
+    -fx-text-fill: #FFFFFF;
+}
+
+#idCreateAccount{
     -fx-text-fill: #FF3B30;
+}
+
+#idCreateAccount:hover{
+    -fx-text-fill: #004DFDFF;
 }

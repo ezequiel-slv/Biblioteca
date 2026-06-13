@@ -14,11 +14,6 @@ public class InicioController implements Initializable {
     }
 
     @FXML
-    void cadastrar(ActionEvent event) {
-        TelasService.mudarTela("cadastrar");
-    }
-
-    @FXML
     void entrar(ActionEvent event) {
         TelasService.mudarTela("entrar");
     }

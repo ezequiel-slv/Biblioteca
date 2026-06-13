@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LoginEmailController implements Initializable {
+public class ContinueEmailController implements Initializable {
     @FXML
     private TextField tf_senha;
 

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.biblioteca.controller.LoginEmailController">
+<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.biblioteca.controller.ContinueEmailController">
    <center>
       <AnchorPane fx:id="backgroundLogin2" prefHeight="500.0" prefWidth="458.0" BorderPane.alignment="CENTER">
          <children>

@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.biblioteca.controller.LoginEmailController">
+<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.biblioteca.controller.ContinueController">
    <center>
-      <AnchorPane fx:id="backgroundLogin2" prefHeight="500.0" prefWidth="458.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="bgContinue" prefHeight="500.0" prefWidth="458.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="brLoginEmailGoogle" layoutX="-242.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <StackPane layoutX="-242.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="326.0">
                     <columnConstraints>
@@ -48,7 +48,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="326.0" text="Ou" textAlignment="JUSTIFY" GridPane.rowIndex="2">
+                        <Label fx:id="idOr" alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="326.0" text="Ou" textAlignment="JUSTIFY" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>
@@ -58,12 +58,12 @@
                               <Insets top="40.0" />
                            </GridPane.margin>
                         </Button>
-                        <Label prefHeight="18.0" prefWidth="138.0" text="Nao tem uma conta?   " GridPane.rowIndex="5">
+                        <Label fx:id="idNoAccount" prefHeight="18.0" prefWidth="138.0" text="Nao tem uma conta?   " GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets top="40.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="idCriarConta" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#criarConta" prefHeight="18.0" prefWidth="106.0" text="Criar uma conta" textAlignment="JUSTIFY" GridPane.rowIndex="5">
+                        <Label fx:id="idCreateAccount" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#createAccount" prefHeight="18.0" prefWidth="106.0" text="Criar uma conta" textAlignment="JUSTIFY" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets left="130.0" top="40.0" />
                            </GridPane.margin>

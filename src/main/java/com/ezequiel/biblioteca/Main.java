@@ -22,12 +22,12 @@ public class Main extends Application {
                 .getResource("telas/stile/Inicio.css")).toExternalForm();
         TelasService.inicioScene.getStylesheets().add(cssInicio);
 
-        Parent telaLogin = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/login.fxml")));
-        TelasService.loginScene = new Scene(telaLogin);
+        Parent telaLogin = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/continue.fxml")));
+        TelasService.continueScene = new Scene(telaLogin);
 
         String cssLogin = Objects.requireNonNull(this.getClass()
-                .getResource("telas/stile/Login.css")).toExternalForm();
-        TelasService.loginScene.getStylesheets().add(cssLogin);
+                .getResource("telas/stile/continue.css")).toExternalForm();
+        TelasService.continueScene.getStylesheets().add(cssLogin);
 
         Parent telaCadastro = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/cadastro.fxml")));
         TelasService.cadastroScene = new Scene(telaCadastro);
@@ -38,6 +38,9 @@ public class Main extends Application {
 
         Parent telaHome = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/home.fxml")));
         TelasService.home = new Scene(telaHome);
+
+        Parent telaLoginEmail = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/loginemail.fxml")));
+        TelasService.continueEmail = new Scene(telaLoginEmail);
 
         sg.setScene(TelasService.inicioScene);
         sg.show();
