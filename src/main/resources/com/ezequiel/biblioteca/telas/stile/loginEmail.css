@@ -1,18 +1,13 @@
-
-#background1{
+#bgLoginEmail{
     -fx-background-color: #0A1120;
 }
 
-#topBg{
-    -fx-background-color: #0A1120;
-}
-
-#appName{
+#loginTitle{
     -fx-text-fill: #FFFFFF;
     -fx-font-family: League Spartan;
 }
 
-#btEntrar{
+#btLoginEmail{
     -fx-background-color: #404040;
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 12;
@@ -20,22 +15,21 @@
     -fx-font-weight: bold;
 }
 
-#btEntrar:hover{
+#btLoginEmail:hover{
     -fx-background-color: #808080FF;
     -fx-text-fill: #000000;
-    -fx-font-weight: bold;
 }
 
-#btCadastrar{
-    -fx-background-color: #404040;
-    -fx-text-fill: #FFFFFF;
+#tf_email{
     -fx-background-radius: 12;
     -fx-font-family: League Spartan;
-    -fx-font-weight: bold;
 }
 
-#btCadastrar:hover{
-    -fx-background-color: #808080FF;
-    -fx-text-fill: #000000;
-    -fx-font-weight: bold;
+#tf_senha{
+    -fx-background-radius: 12;
+    -fx-font-family: League Spartan;
+}
+
+#alertLogin{
+    -fx-text-fill: #FF3B30;
 }

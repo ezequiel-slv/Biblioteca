@@ -42,6 +42,10 @@ public class Main extends Application {
         Parent telaLoginEmail = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/loginemail.fxml")));
         TelasService.continueEmail = new Scene(telaLoginEmail);
 
+        String cssLoginEmail = Objects.requireNonNull(this.getClass()
+                .getResource("telas/stile/loginEmail.css")).toExternalForm();
+        TelasService.continueEmail.getStylesheets().add(cssLoginEmail);
+
         sg.setScene(TelasService.inicioScene);
         sg.show();
     }
