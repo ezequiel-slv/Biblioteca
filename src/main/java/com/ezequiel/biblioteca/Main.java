@@ -19,21 +19,21 @@ public class Main extends Application {
         TelasService.inicioScene = new Scene(telaInicio);
 
         String cssInicio = Objects.requireNonNull(this.getClass()
-                .getResource("telas/stile/Inicio.css")).toExternalForm();
+                .getResource("telas/css/Inicio.css")).toExternalForm();
         TelasService.inicioScene.getStylesheets().add(cssInicio);
 
         Parent telaLogin = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/continue.fxml")));
         TelasService.continueScene = new Scene(telaLogin);
 
         String cssLogin = Objects.requireNonNull(this.getClass()
-                .getResource("telas/stile/continue.css")).toExternalForm();
+                .getResource("telas/css/continue.css")).toExternalForm();
         TelasService.continueScene.getStylesheets().add(cssLogin);
 
         Parent telaCadastro = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/cadastro.fxml")));
         TelasService.cadastroScene = new Scene(telaCadastro);
 
         String cssCadastro = Objects.requireNonNull(this.getClass()
-                .getResource("telas/stile/cadastro.css")).toExternalForm();
+                .getResource("telas/css/cadastro.css")).toExternalForm();
         TelasService.cadastroScene.getStylesheets().add(cssCadastro);
 
         Parent telaHome = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/home.fxml")));
@@ -43,7 +43,7 @@ public class Main extends Application {
         TelasService.continueEmail = new Scene(telaLoginEmail);
 
         String cssLoginEmail = Objects.requireNonNull(this.getClass()
-                .getResource("telas/stile/loginEmail.css")).toExternalForm();
+                .getResource("telas/css/loginEmail.css")).toExternalForm();
         TelasService.continueEmail.getStylesheets().add(cssLoginEmail);
 
         sg.setScene(TelasService.inicioScene);

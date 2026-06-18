@@ -1,9 +1,9 @@
 
 #background1{
-    -fx-background-color: #0A1120}
+    -fx-background-color: #000814}
 
 #topBg{
-    -fx-background-color: #0A1120}
+    -fx-background-color: #000814}
 
 #appName{
     -fx-text-fill: #FFFFFF;
@@ -11,16 +11,16 @@
 }
 
 #btEntrar{
-    -fx-background-color: #404040;
+    -fx-background-color: #2F2F2F;
     -fx-text-fill: #FFFFFF;
-    -fx-background-radius: 12;
+    -fx-background-radius: 20;
     -fx-font-family: League Spartan;
     -fx-font-weight: bold;
 }
 
 #btEntrar:hover{
-    -fx-background-color: #808080FF;
-    -fx-text-fill: #000000;
+    -fx-background-color: #C0C0C0;
+    -fx-text-fill: #2F2F2F;
     -fx-font-weight: bold;
 }
 
