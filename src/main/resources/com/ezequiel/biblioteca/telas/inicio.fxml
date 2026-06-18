@@ -34,7 +34,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane alignment="TOP_RIGHT" layoutX="518.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" AnchorPane.leftAnchor="532.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+            <GridPane alignment="TOP_RIGHT" layoutX="545.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="176.0" AnchorPane.leftAnchor="545.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="173.0" />
                </columnConstraints>
