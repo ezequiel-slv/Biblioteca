@@ -15,31 +15,36 @@ public class Main extends Application {
         TelasService.stage = sg;
         sg.setTitle("Biblioteca");
 
-        Parent telaInicio = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/inicio.fxml")));
+        Parent telaInicio = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("telas/inicio.fxml")));
         TelasService.inicioScene = new Scene(telaInicio);
 
         String cssInicio = Objects.requireNonNull(this.getClass()
                 .getResource("telas/css/Inicio.css")).toExternalForm();
         TelasService.inicioScene.getStylesheets().add(cssInicio);
 
-        Parent telaLogin = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/continue.fxml")));
+        Parent telaLogin = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("telas/continue.fxml")));
         TelasService.continueScene = new Scene(telaLogin);
 
         String cssLogin = Objects.requireNonNull(this.getClass()
                 .getResource("telas/css/continue.css")).toExternalForm();
         TelasService.continueScene.getStylesheets().add(cssLogin);
 
-        Parent telaCadastro = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/cadastro.fxml")));
+        Parent telaCadastro = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("telas/cadastro.fxml")));
         TelasService.cadastroScene = new Scene(telaCadastro);
 
         String cssCadastro = Objects.requireNonNull(this.getClass()
                 .getResource("telas/css/cadastro.css")).toExternalForm();
         TelasService.cadastroScene.getStylesheets().add(cssCadastro);
 
-        Parent telaHome = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/home.fxml")));
-        TelasService.home = new Scene(telaHome);
+        Parent telaHome = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("telas/home.fxml")));
+        TelasService.homeScene = new Scene(telaHome);
 
-        Parent telaLoginEmail = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telas/loginemail.fxml")));
+        Parent telaLoginEmail = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("telas/loginemail.fxml")));
         TelasService.continueEmail = new Scene(telaLoginEmail);
 
         String cssLoginEmail = Objects.requireNonNull(this.getClass()

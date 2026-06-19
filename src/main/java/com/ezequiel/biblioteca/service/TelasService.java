@@ -8,7 +8,7 @@ public class TelasService {
     public static Scene inicioScene;
     public static Scene continueScene;
     public static Scene cadastroScene;
-    public static Scene home;
+    public static Scene homeScene;
     public static Scene continueEmail;
 
 
@@ -20,12 +20,12 @@ public class TelasService {
             case "createAccount":
                 stage.setScene(cadastroScene);
                 break;
-            case "voltarLogin", "voltarCadastro":
-                stage.setScene(inicioScene);
             case "loginSuccessfull":
-                stage.setScene(home);
+                stage.setScene(homeScene);
+                break;
             case "continueEmail":
                 stage.setScene(continueEmail);
+                break;
             default:
                 break;
         }

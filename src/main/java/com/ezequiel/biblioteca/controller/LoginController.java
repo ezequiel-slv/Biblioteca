@@ -8,20 +8,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ContinueEmailController implements Initializable {
+public class LoginController implements Initializable {
     @FXML
-    private TextField tf_senha;
-
+    private Label alertLogin;
     @FXML
     private TextField tf_email;
 
     @FXML
-    private Label alertLogin;
+    private TextField tf_senha;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -110,10 +112,16 @@ public class ContinueEmailController implements Initializable {
 
             if (loginEstudante) {
                 TelasService.mudarTela("loginSuccessfull");
+                limpar();
             } else {
-                TelasService.mudarTela("cadastrar");
+                TelasService.mudarTela("createAccount");
             }
         }
+    }
+
+    void limpar () {
+        tf_email.setText("");
+        tf_senha.setText("");
     }
 }
 

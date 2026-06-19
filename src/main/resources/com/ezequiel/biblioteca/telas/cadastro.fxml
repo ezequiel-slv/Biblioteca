@@ -21,7 +21,7 @@
          <children>
             <StackPane layoutX="-4.0" prefHeight="500.0" prefWidth="463.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane fx:id="boxBg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="485.0" prefWidth="485.0" StackPane.alignment="CENTER">
+                  <AnchorPane fx:id="boxBg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="485.0" StackPane.alignment="CENTER">
                      <children>
                         <GridPane alignment="CENTER" layoutX="47.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="270.0" prefWidth="392.0">
                           <columnConstraints>

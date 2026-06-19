@@ -3,21 +3,22 @@
 }
 
 #loginTitle{
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #dadada;
     -fx-font-family: League Spartan;
 }
 
 #btLoginEmail{
-    -fx-background-color: #404040;
+    -fx-background-color: #2F2F2F;
     -fx-text-fill: #FFFFFF;
-    -fx-background-radius: 12;
+    -fx-background-radius: 20;
     -fx-font-family: League Spartan;
     -fx-font-weight: bold;
 }
 
 #btLoginEmail:hover{
-    -fx-background-color: #808080FF;
-    -fx-text-fill: #000000;
+    -fx-background-color: #C0C0C0;
+    -fx-text-fill: #2F2F2F;
+    -fx-font-weight: bold;
 }
 
 #tf_email{
@@ -32,4 +33,9 @@
 
 #alertLogin{
     -fx-text-fill: #FF3B30;
+}
+
+#boxBg{
+    -fx-background-color: #000814;
+    -fx-background-radius: 20;
 }
