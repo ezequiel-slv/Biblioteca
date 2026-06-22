@@ -1,7 +1,7 @@
 package com.ezequiel.library.controller;
 
 import com.ezequiel.library.model.User;
-import com.ezequiel.library.service.LoginUserService;
+import com.ezequiel.library.service.LoginEmailService;
 import com.ezequiel.library.service.ScreenService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +33,7 @@ public class LoginController implements Initializable {
     }
 
     User user = new User();
-    LoginUserService loginUserService = new LoginUserService();
+    LoginEmailService loginEmailService = new LoginEmailService();
 
     public boolean validar() {
 
@@ -108,7 +108,7 @@ public class LoginController implements Initializable {
             user.setEmail(tf_email.getText());
             user.setSenha(tf_senha.getText());
 
-            boolean loginEstudante = loginUserService.buscar(user);
+            boolean loginEstudante = loginEmailService.buscar(user);
 
             if (loginEstudante) {
                 ScreenService.mudarTela("loginSuccessfull");

@@ -7,14 +7,14 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ScreenInitialController implements Initializable {
+public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
     @FXML
-    void entrar(ActionEvent event) {
+    void enter(ActionEvent event) {
         ScreenService.mudarTela("entrar");
     }
 

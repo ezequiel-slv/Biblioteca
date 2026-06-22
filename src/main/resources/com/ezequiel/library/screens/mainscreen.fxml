@@ -9,12 +9,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.library.controller.ScreenInitialController">
-   <right>
-      <AnchorPane fx:id="background2" BorderPane.alignment="CENTER" />
-   </right>
+<BorderPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ezequiel.library.controller.MainController">
    <center>
-      <AnchorPane fx:id="background1" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="centerBg" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <AnchorPane fx:id="topBg" BorderPane.alignment="TOP_LEFT">
@@ -42,7 +39,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="btEntrar" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#entrar" prefHeight="30.0" prefWidth="183.0" text="Entrar" textAlignment="CENTER">
+                  <Button fx:id="btEnter" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#enter" prefHeight="30.0" prefWidth="183.0" text="Entrar" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

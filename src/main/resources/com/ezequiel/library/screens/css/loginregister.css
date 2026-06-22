@@ -1,19 +1,14 @@
-#bgContinue{
+#bgCenter{
     -fx-background-color: #0A1120;
+}
+
+#bgBox{
+    -fx-background-color: #000814;
+    -fx-background-radius: 20;
 }
 
 #loginTitle{
     -fx-text-fill: #FFFFFF;
-    -fx-font-family: League Spartan;
-}
-
-#tf_email{
-    -fx-background-radius: 12;
-    -fx-font-family: League Spartan;
-}
-
-#tf_senha{
-    -fx-background-radius: 12;
     -fx-font-family: League Spartan;
 }
 
@@ -31,6 +26,10 @@
     -fx-font-weight: bold;
 }
 
+#idOr{
+    -fx-text-fill: #FFFFFF;
+}
+
 #btLoginGoogle{
     -fx-background-color: #2F2F2F;
     -fx-text-fill: #FFFFFF;
@@ -45,10 +44,6 @@
     -fx-font-weight: bold;
 }
 
-#idOr{
-    -fx-text-fill: #FFFFFF;
-}
-
 #idNoAccount{
     -fx-text-fill: #FFFFFF;
 }
@@ -59,9 +54,4 @@
 
 #idCreateAccount:hover{
     -fx-text-fill: #004DFDFF;
-}
-
-#boxBg{
-    -fx-background-color: #000814;
-    -fx-background-radius: 20;
 }

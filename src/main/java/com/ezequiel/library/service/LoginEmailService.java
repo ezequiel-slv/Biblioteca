@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginUserService implements LoginInterface {
+public class LoginEmailService implements LoginInterface {
 
     @Override
     public boolean buscar(User user) {

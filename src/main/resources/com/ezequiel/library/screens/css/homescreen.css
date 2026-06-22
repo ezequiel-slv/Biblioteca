@@ -1,0 +1,26 @@
+#topBg{
+    -fx-background-color: #000814
+}
+
+#appName{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: League Spartan;
+}
+
+#centerBg{
+    -fx-background-color: #000814
+}
+
+#btEnter{
+    -fx-background-color: #2F2F2F;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 20;
+    -fx-font-family: League Spartan;
+    -fx-font-weight: bold;
+}
+
+#btEnter:hover{
+    -fx-background-color: #C0C0C0;
+    -fx-text-fill: #2F2F2F;
+    -fx-font-weight: bold;
+}
