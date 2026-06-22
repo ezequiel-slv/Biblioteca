@@ -2,13 +2,13 @@ package com.ezequiel.library.service;
 
 import com.ezequiel.library.connection.ConnectionDB;
 import com.ezequiel.library.model.User;
-import com.ezequiel.library.repository.CadastroInterface;
+import com.ezequiel.library.repository.RegisterInterface;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class RegisterUserService implements CadastroInterface {
+public class RegisterUserService implements RegisterInterface {
     @Override
     public void inserir(User user) {
         String sql = "INSERT INTO tb_estudante(nome, sexo, data_nascimento, email, senha) VALUES (?, ?, ?, ?, ?)";
